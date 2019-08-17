@@ -19,3 +19,47 @@
 // End License Information
 
 
+quickmeta group SwapData
+	
+	index
+		return Bubble_Swap:GetValue(key)
+	end
+	
+	newindex
+		Bubble_Swap:SetValue(key,value)
+	end
+	
+	len
+		return Bubble_Swap.Length
+	end
+	
+end
+
+group Swap
+
+	link Data = SwapData
+	
+	void Append(string k,string v)
+		Bubble_Swap:AppValue(k,v)
+	end
+	
+	void Kill(string k)
+		Bubble_Swap:Kill(k)
+	end
+	
+	void Clear()
+		Bubble_Swap:Clear()
+	end
+	
+	get string KeyScript
+		return Bubble_Swap:LuaKeys()
+	end
+	
+	get table Keys
+		var l
+		#pure
+		l = (loadstring or load)
+		#endpure
+		return l($KeyScript)()
+	end
+end
