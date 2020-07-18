@@ -1,8 +1,8 @@
 // Lic:
 // Bubble_Swap.cs
 // Swap linkup code
-// version: 19.08.16
-// Copyright (C)  Jeroen P. Broks
+// version: 20.07.19
+// Copyright (C) 2019 Jeroen P. Broks
 // This software is provided 'as-is', without any express or implied
 // warranty.  In no event will the authors be held liable for any damages
 // arising from the use of this software.
@@ -75,6 +75,7 @@ namespace Bubble {
         public int Length { get { InitSwap(); return SwapMap.Keys.Length; } }
         public void Kill(string k, string v) { InitSwap(); SwapMap.Kill(k); }
         public void Clear() { InitSwap(); SwapMap.Clear(); }
+        public static void StaticClear() { InitSwap(); SwapMap.Clear(); } // Only added to make sure it all works from the start!
         public string LuaKeys() { InitSwap(); return SwapMap.KeysLua; }
 
         public static void SwapSave(UseJCR6.TJCRCreate j, string dir) {
